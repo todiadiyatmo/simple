@@ -6,7 +6,9 @@ defined('MOODLE_INTERNAL') || die;
 define("SIMPLE_MAX_NAME_LENGTH", 50);
 
 function get_simple_name($simple) {
-    $name = strip_tags(format_string($simple->intro,true));
+
+    $name = strip_tags(format_string($simple->text,true));
+    
     if (core_text::strlen($name) > SIMPLE_MAX_NAME_LENGTH) {
         $name = core_text::substr($name, 0, SIMPLE_MAX_NAME_LENGTH)."...";
     }
